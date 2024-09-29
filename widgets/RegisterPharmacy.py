@@ -2,7 +2,8 @@ from PySide6.QtWidgets import (
     QWidget,
     QLineEdit,
     QVBoxLayout,
-    QPushButton
+    QPushButton,
+    QFormLayout
 )
 from PySide6.QtCore import (
     Qt
@@ -13,14 +14,14 @@ class RegisterPharmacy(QWidget):
         self.name = 'Register Pharamacy'
         self.database = database
 
-        box = QVBoxLayout()
+        box = QFormLayout()
         box.setAlignment(Qt.AlignmentFlag.AlignTop)
         
         company = QLineEdit()
-        box.addWidget(company)
+        box.addRow('Company', company)
 
         address = QLineEdit()
-        box.addWidget(address)
+        box.addRow('Address', address)
 
         confirm = QPushButton('Confirm')
         box.addWidget(confirm)
