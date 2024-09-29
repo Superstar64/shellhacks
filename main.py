@@ -17,6 +17,7 @@ from widgets.RegisterPharmacy import RegisterPharmacy
 
 app = QApplication(sys.argv)
 
+
 picker = QFileDialog(caption='Select Database',filter='Databases (*.sqlite)')
 if picker.exec():
     fileNames = picker.selectedFiles()
@@ -33,6 +34,7 @@ if picker.exec():
     window.addTab(AddDrug(cursor), 'Add Drug')
     window.addTab(RegisterPharmacy(cursor), "Register Pharmacy")
 
+    window.resize(800,600)
     window.show()
 
     sys.exit(app.exec())
