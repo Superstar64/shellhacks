@@ -43,7 +43,7 @@ if picker.exec():
     window.currentChanged.connect(lambda index: tabs[index].update())
     tabs[0].update()
 
-    window.resize(800, 600)
+    window.resize(800, 300)
     window.show()
 
     sys.exit(app.exec())
