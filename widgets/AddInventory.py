@@ -14,9 +14,18 @@ class AddInventory(QWidget):
         super().__init__()
         self.name = 'Add Inventory'
         self.database = database
+        self.base = QVBoxLayout()
+        self.base.addWidget(QWidget())
+        self.setLayout(self.base)
 
     def update(self):
+        # Qt doesn't support replacing layouts, so wrap it in an object instead
+        inner = QWidget()
+        self.base.takeAt(0).widget().deleteLater()
+        self.base.addWidget(inner)
+
         vBox = QVBoxLayout()
+        inner.setLayout(vBox)
         vBox.setAlignment(Qt.AlignmentFlag.AlignTop)
         drugTypes = QComboBox()
         drugTypesIndex = []
@@ -39,4 +48,4 @@ class AddInventory(QWidget):
             self.database.execute('insert into inventory(drug_type_id, pharmacy_id) values(?, ?)', (drugTypeId, pharamacyId))
         confirm.clicked.connect(push)
         vBox.addWidget(confirm)
-        self.setLayout(vBox)
+        inner.setLayout(vBox)

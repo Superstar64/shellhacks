@@ -10,8 +10,16 @@ class ViewDrug(QWidget):
         super().__init__()
         self.name = 'List of Drugs'
         self.database = database
+        self.base = QVBoxLayout()
+        self.base.addWidget(QWidget())
+        self.setLayout(self.base)
 
     def update(self):
+        # Qt doesn't support replacing layouts, so wrap it in an object instead
+        inner = QWidget()
+        self.base.itemAt(0).widget().deleteLater()
+        self.base.addWidget(inner)
+
         data = []
         for item in self.database.execute('select drug_id, drug_type.name, pharmacies.name, pharmacies.address from inventory, drug_type, pharmacies where drug_type.id = drug_type_id and pharmacies.id = pharmacy_id'):
             data.append(item)
@@ -30,4 +38,4 @@ class ViewDrug(QWidget):
         box = QVBoxLayout()
         box.addWidget(table)
 
-        self.setLayout(box)
+        inner.setLayout(box)
