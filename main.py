@@ -26,14 +26,13 @@ if picker.exec():
         sys.exit(1)
     fileName = fileNames[0]
     database = connect(fileName)
-    cursor = database.cursor()
 
     window = QTabWidget()
     window.setWindowTitle("Pharmaceutical Inventory")
 
     tabs = [
-        AddDrug(cursor),
-        RegisterPharmacy(cursor)
+        AddDrug(database),
+        RegisterPharmacy(database)
     ]
 
     for tab in tabs:
