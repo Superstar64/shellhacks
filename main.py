@@ -13,6 +13,7 @@ import sys
 from widgets.AddInventory import AddInventory
 from widgets.RegisterPharmacy import RegisterPharmacy
 from widgets.ViewDrug import ViewDrug
+from widgets.RegisterDrug import RegisterDrug
 
 app = QApplication(sys.argv)
 
@@ -29,7 +30,7 @@ if picker.exec():
     window = QTabWidget()
     window.setWindowTitle("Pharmaceutical Inventory")
 
-    tabs = [AddInventory(database), RegisterPharmacy(database), ViewDrug(database)]
+    tabs = [AddInventory(database), RegisterPharmacy(database), RegisterDrug(database), ViewDrug(database)]
 
     for tab in tabs:
         window.addTab(tab, tab.name)
