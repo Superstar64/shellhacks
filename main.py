@@ -30,7 +30,12 @@ if picker.exec():
     window = QTabWidget()
     window.setWindowTitle("Pharmaceutical Inventory")
 
-    tabs = [AddInventory(database), RegisterPharmacy(database), RegisterDrug(database), ViewDrug(database)]
+    tabs = [
+        ViewDrug(database),
+        AddInventory(database),
+        RegisterPharmacy(database),
+        RegisterDrug(database),
+    ]
 
     for tab in tabs:
         window.addTab(tab, tab.name)
