@@ -14,3 +14,10 @@ create table inventory(
     foreign key (drug_type_id) references drug_type(id),
     foreign key (pharmacy_id) references pharmacies(id)
 );
+
+insert into drug_type (name) values
+    ('Oxycodone'),
+    ('fentanyl'),
+    ('cocaine'),
+    ('methamphetamine'),
+    ('benzodiazepines');
