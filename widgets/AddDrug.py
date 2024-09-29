@@ -2,7 +2,8 @@ from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
     QLabel,
-    QComboBox
+    QComboBox,
+    QPushButton
 )
 from PySide6.QtCore import (
     Qt
@@ -20,15 +21,22 @@ class AddDrug(QWidget):
         drugTypes = QComboBox()
         drugTypesIndex = []
         for (id, name) in self.database.execute('select id, name from drug_type'):
-            drugTypesIndex.append((id, name))
+            drugTypesIndex.append(id)
             drugTypes.addItem(name)
         
         pharamacies = QComboBox()
         pharamaciesIndex = []
         for (id, name, address) in self.database.execute('select id, name, address from pharmacies'):
-            pharamaciesIndex.append((id, name, address))
+            pharamaciesIndex.append(id)
             pharamacies.addItem(name + ' @ ' + address)
 
         vBox.addWidget(drugTypes)
         vBox.addWidget(pharamacies)
+        confirm = QPushButton('Confirm')
+        def push():
+            drugTypeId = drugTypesIndex[drugTypes.currentIndex()]
+            pharamacyId = pharamaciesIndex[pharamacies.currentIndex()]
+            self.database.execute('insert into inventory(drug_type_id, pharmacy_id) values(?, ?)', (drugTypeId, pharamacyId))
+        confirm.clicked.connect(push)
+        vBox.addWidget(confirm)
         self.setLayout(vBox)

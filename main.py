@@ -26,7 +26,7 @@ if picker.exec():
         QMessageBox.critical('Too many database selected')
         sys.exit(1)
     fileName = fileNames[0]
-    database = connect(fileName)
+    database = connect(fileName, autocommit=True)
 
     window = QTabWidget()
     window.setWindowTitle("Pharmaceutical Inventory")
