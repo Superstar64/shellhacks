@@ -4,7 +4,7 @@ from PySide6.QtWidgets import QWidget, QTableWidget, QVBoxLayout, QTableWidgetIt
 class ViewDrug(QWidget):
     def __init__(self, database):
         super().__init__()
-        self.name = "List of Drugs"
+        self.name = "Inventory"
         self.database = database
         self.base = QVBoxLayout()
         self.base.addWidget(QWidget())
