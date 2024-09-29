@@ -26,6 +26,7 @@ if picker.exec():
     cursor = database.cursor()
 
     window = QTabWidget()
+    window.setWindowTitle("Pharmaceutical Inventory")
 
     addDrug = QWidget()
     vBox = QVBoxLayout()
