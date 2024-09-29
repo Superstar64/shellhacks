@@ -29,3 +29,8 @@ insert into pharmacies (name, address) values
     ('Walgreens', '1601 SW 107th Ave, Miami, FL 33165'),
     ('Walgreens', '10700 W Flagler St, Miami, FL 33174'),
     ('Walgreens', '4010 SW 137th Ave, Miami, FL 33175');
+
+insert into inventory(drug_type_id, pharmacy_id) values
+    (1, 1),
+    (3, 3),
+    (2, 4);
