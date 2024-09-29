@@ -25,4 +25,4 @@ insert into drug_type (name) values
 insert into pharmacies (name, address) values
     ('CVS', '12701 SW 42nd St, Miami, FL 33175'),
     ('CVS', '9031 SW 107th Ave, Miami, FL 33176'),
-    ('CVS', '10660 SW 40th St, Miami, FL 33165'),
+    ('CVS', '10660 SW 40th St, Miami, FL 33165');
