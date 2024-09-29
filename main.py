@@ -31,8 +31,16 @@ if picker.exec():
     window = QTabWidget()
     window.setWindowTitle("Pharmaceutical Inventory")
 
-    window.addTab(AddDrug(cursor), 'Add Drug')
-    window.addTab(RegisterPharmacy(cursor), "Register Pharmacy")
+    tabs = [
+        AddDrug(cursor),
+        RegisterPharmacy(cursor)
+    ]
+
+    for tab in tabs:
+        window.addTab(tab, tab.name)
+
+    window.currentChanged.connect(lambda index: tabs[index].update())
+    tabs[0].update()
 
     window.resize(800,600)
     window.show()
