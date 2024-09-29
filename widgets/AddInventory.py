@@ -9,10 +9,10 @@ from PySide6.QtCore import (
     Qt
 )
 
-class AddDrug(QWidget):
+class AddInventory(QWidget):
     def __init__(self, database):
         super().__init__()
-        self.name = 'AddDrug'
+        self.name = 'Add Inventory'
         self.database = database
 
     def update(self):

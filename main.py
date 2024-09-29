@@ -12,7 +12,7 @@ from sqlite3 import (
     connect
 )
 import sys
-from widgets.AddDrug import AddDrug
+from widgets.AddInventory import AddInventory
 from widgets.RegisterPharmacy import RegisterPharmacy
 from widgets.ViewDrug import ViewDrug
 
@@ -32,7 +32,7 @@ if picker.exec():
     window.setWindowTitle("Pharmaceutical Inventory")
 
     tabs = [
-        AddDrug(database),
+        AddInventory(database),
         RegisterPharmacy(database),
         ViewDrug(database)
     ]
