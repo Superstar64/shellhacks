@@ -1,11 +1,13 @@
 create table drug_type(
     id integer primary key autoincrement,
-    name text not null
+    name text not null,
+    unique (name)
 );
 create table pharmacies(
     id integer primary key autoincrement,
     name text not null,
-    address text not null
+    address text not null,
+    unique (name, address)
 );
 create table inventory(
     drug_id integer primary key autoincrement,
