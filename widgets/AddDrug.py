@@ -16,11 +16,19 @@ class AddDrug(QWidget):
 
     def update(self):
         vBox = QVBoxLayout()
+        vBox.setAlignment(Qt.AlignmentFlag.AlignTop)
         drugTypes = QComboBox()
         drugTypesIndex = []
         for (id, name) in self.database.execute('select id, name from drug_type'):
             drugTypesIndex.append((id, name))
             drugTypes.addItem(name)
-        vBox.setAlignment(Qt.AlignmentFlag.AlignTop)
+        
+        pharamacies = QComboBox()
+        pharamaciesIndex = []
+        for (id, name, address) in self.database.execute('select id, name, address from pharmacies'):
+            pharamaciesIndex.append((id, name, address))
+            pharamacies.addItem(name + ' @ ' + address)
+
         vBox.addWidget(drugTypes)
+        vBox.addWidget(pharamacies)
         self.setLayout(vBox)
