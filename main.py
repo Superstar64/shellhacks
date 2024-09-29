@@ -12,6 +12,8 @@ from sqlite3 import (
     connect
 )
 import sys
+from widgets.AddDrug import AddDrug
+from widgets.RegisterPharmacy import RegisterPharmacy
 
 app = QApplication(sys.argv)
 
@@ -28,18 +30,8 @@ if picker.exec():
     window = QTabWidget()
     window.setWindowTitle("Pharmaceutical Inventory")
 
-    addDrug = QWidget()
-    vBox = QVBoxLayout()
-    intro = QLabel("This is a Program for logging newly created drugs")
-    vBox.addWidget(intro)
-
-
-    addDrug.setLayout(vBox)
-    window.addTab(addDrug, 'Add Drug')
-
-
-    registerPharmacy = QWidget()
-    window.addTab(registerPharmacy, "Register Pharmacy")
+    window.addTab(AddDrug(cursor), 'Add Drug')
+    window.addTab(RegisterPharmacy(cursor), "Register Pharmacy")
 
     window.show()
 
