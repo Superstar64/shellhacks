@@ -17,7 +17,7 @@ create table inventory(
 
 insert into drug_type (name) values
     ('Oxycodone'),
-    ('fentanyl'),
-    ('cocaine'),
-    ('methamphetamine'),
-    ('benzodiazepines');
+    ('Fentanyl'),
+    ('Cocaine'),
+    ('Methamphetamine'),
+    ('Benzodiazepines');
