@@ -4,6 +4,9 @@ from PySide6.QtWidgets import (
     QLabel,
     QComboBox
 )
+from PySide6.QtCore import (
+    Qt
+)
 
 class AddDrug(QWidget):
     def __init__(self, database):
@@ -18,6 +21,6 @@ class AddDrug(QWidget):
         for (id, name) in self.database.execute('select id, name from drug_type'):
             drugTypesIndex.append((id, name))
             drugTypes.addItem(name)
-            
+        vBox.setAlignment(Qt.AlignmentFlag.AlignTop)
         vBox.addWidget(drugTypes)
         self.setLayout(vBox)
