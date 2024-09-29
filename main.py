@@ -14,6 +14,7 @@ from sqlite3 import (
 import sys
 from widgets.AddDrug import AddDrug
 from widgets.RegisterPharmacy import RegisterPharmacy
+from widgets.ViewDrug import ViewDrug
 
 app = QApplication(sys.argv)
 
@@ -32,7 +33,8 @@ if picker.exec():
 
     tabs = [
         AddDrug(database),
-        RegisterPharmacy(database)
+        RegisterPharmacy(database),
+        ViewDrug(database)
     ]
 
     for tab in tabs:
